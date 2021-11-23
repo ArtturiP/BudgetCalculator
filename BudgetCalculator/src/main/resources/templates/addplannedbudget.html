@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Budget Planner</title>
+</head>
+<body>
+<h1>Add budget</h1>
+<div>
+ <form th:object="${plannedbudget}" th:action="@{saveplan}" action="#" method="post">
+
+ <label for="income">Income</label>
+ <input type="number" id="income" th:field="*{income}" />
+ <label for="spend">Spend</label>
+ <input type="number" id="spend" th:field="*{spend}" />
+ <input type="submit" value="Save Plan"></input>
+ </form>
+</div>
+</body>
+</html>

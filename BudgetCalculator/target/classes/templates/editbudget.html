@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Budget Calculator</title>
+</head>
+<body>
+<h1>Modify Budget</h1>
+<div>
+<form th:object="${budget}" th:action="@{../save}" action="#" method="post">
+<input type="hidden" th:field="*{id}" readonly="readonly"/>
+<label for="month">Month</label>
+<input type="text" id="month" th:field="*{month}" />
+<label for="income">Income</label>
+<input type="number" id="income" th:field="*{income}" />
+<label for="spend">Spend</label>
+<input type="number" id="spend" th:field="*{spend}" />
+
+<input type="submit" class="btn btn-success" value="Save"></input>
+</form>
+</div>
+</body>
+</html>

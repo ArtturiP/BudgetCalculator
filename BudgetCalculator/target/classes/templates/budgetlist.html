@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Budget Calculator</title>
+</head>
+<body>
+<h1>Previous Budgets</h1>
+<table class="table table-striped">
+<tr>
+<th>Month</th>
+<th>Income</th>
+<th>Spend</th>
+</tr>
+<tr th:each = "budget : ${budgets}">
+<td th:text="${budget.month}"></td>
+<td th:text="${budget.income}"></td>
+<td th:text="${budget.spend}"></td>
+<td><a th:href="@{/delete/{id}(id=${budget.id})}" class="btn btn-xs btn-danger">Delete</a></td> 
+<td><a th:href="@{/edit/{id}(id=${budget.id})}">Edit</a></td>
+</tr>
+</table>
+
+<a href="/add" class="btn btn-primary">Add Monthly Budget</a>
+
+<h1>Planned Budgets</h1>
+<table class="table table-striped">
+<tr>
+<th>Month</th>
+<th>Income</th>
+<th>Spend</th>
+</tr>
+<tr th:each = "plannedbudget : ${plannedbudgets}">
+<td th:text="${plannedbudget.month}"></td>
+<td th:text="${plannedbudget.income}"></td>
+<td th:text="${plannedbudget.spend}"></td>
+<td><a th:href="@{/deleteplan/{id}(id=${plannedbudget.id})}" class="btn btn-xs btn-danger">Delete</a></td> 
+<td><a th:href="@{/editplan/{id}(id=${plannedbudget.id})}">Edit</a></td>
+
+</tr>
+</table>
+
+<a href="/addplan" class="btn btn-primary">Plan Monthly Budget</a>
+
+
+</body>
+</html>
