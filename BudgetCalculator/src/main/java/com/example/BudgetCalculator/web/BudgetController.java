@@ -29,7 +29,7 @@ public class BudgetController {
 	private PlannedRepository prepository;
 	
 	private List<Budget> budgets = new ArrayList<Budget>();
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String home(@RequestParam(name = "budget", required = false)String name, Model model) {
 
 		budgets = new ArrayList<Budget>();
