@@ -11,6 +11,7 @@ xmlns:th="http://www.thymeleaf.org">
 <!-- Budjetin lisäys -->
  <form th:object="${plannedbudget}" th:action="@{saveplan}" action="#" method="post">
  <label for="month">Month</label>
+ <input type="month" id="month" th:field="*{month}" />
  <br/>
  <h2>Income</h2>
  <label for="salary">Salary</label>
