@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Budget Calculator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<!-- Menneet budjetit listattuna -->
+<h1>Previous Budgets</h1>
+<table class="table table-striped">
+<tr>
+<th>Month</th>
+<th>Salary</th>
+<th>Other</th>
+<th>Income</th>
+<th>Rent</th>
+<th>Bills</th>
+<th>Food</th>
+<th>Essentials</th>
+<th>Entertainment</th>
+<th>Other</th>
+<th>Spend</th>
+</tr>
+<tr th:each = "budget : ${budgets}">
+<td th:text="${budget.month}"></td>
+<td th:text="${budget.salary}"></td>
+<td th:text="${budget.otherinc}"></td>
+<th th:text="${budget.income}"></th>
+<td th:text="${budget.rent}"></td>
+<td th:text="${budget.bills}"></td>
+<td th:text="${budget.food}"></td>
+<td th:text="${budget.essentials}"></td>
+<td th:text="${budget.entertainment}"></td>
+<td th:text="${budget.otherspe}"></td>
+<th th:text="${budget.spend}"></th>
+<td><a th:href="@{/delete/{id}(id=${budget.id})}" class="btn btn-danger">Delete</a></td> 
+<td><a th:href="@{/edit/{id}(id=${budget.id})}" class="btn btn-warning">Edit</a></td>
+</tr>
+</table>
+
+<!-- Lisää mennyt budjetti -->
+<a href="/add" class="btn btn-primary">Add Monthly Budget</a>
+
+<!-- Budjettisuunnitelmat listattuna -->
+<h1>Planned Budgets</h1>
+<table class="table table-striped">
+<tr>
+<th>Month</th>
+<th>Salary</th>
+<th>Other</th>
+<th>Income</th>
+<th>Rent</th>
+<th>Bills</th>
+<th>Food</th>
+<th>Essentials</th>
+<th>Entertainment</th>
+<th>Other</th>
+<th>Spend</th>
+</tr>
+<tr th:each = "plannedbudget : ${plannedbudgets}">
+<td th:text="${plannedbudget.month}"></td>
+<td th:text="${plannedbudget.salary}"></td>
+<td th:text="${plannedbudget.otherinc}"></td>
+<th th:text="${plannedbudget.income}"></th>
+<td th:text="${plannedbudget.rent}"></td>
+<td th:text="${plannedbudget.bills}"></td>
+<td th:text="${plannedbudget.food}"></td>
+<td th:text="${plannedbudget.essentials}"></td>
+<td th:text="${plannedbudget.entertainment}"></td>
+<td th:text="${plannedbudget.otherspe}"></td>
+<th th:text="${plannedbudget.spend}"></th>
+<td><a th:href="@{/deleteplan/{id}(id=${plannedbudget.id})}" class="btn btn-danger">Delete</a></td> 
+<td><a th:href="@{/editplan/{id}(id=${plannedbudget.id})}" class="btn btn-warning">Edit</a></td>
+
+</tr>
+</table>
+
+<!-- Lisää budjettisuunnitelma -->
+<a href="/addplan" class="btn btn-primary">Plan Monthly Budget</a>
+<br/>
+<!-- linkki kotisivulle -->
+<a href="/index" class="btn btn-success">Kotisivu</a>
+
+
+</body>
+</html>
