@@ -3,18 +3,46 @@
 xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Budget Calculator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 <h1>Add budget</h1>
 <div>
+<!-- Budjetin lisäys -->
  <form th:object="${budget}" th:action="@{save}" action="#" method="post">
-
- <label for="income">Income</label>
- <input type="number" id="income" th:field="*{income}" />
- <label for="spend">Spend</label>
- <input type="number" id="spend" th:field="*{spend}" />
+ <label for="month">Month</label>
+ <input type="month" id="month" th:field="*{month}" />
+ <br/>
+ <h2>Income</h2>
+ <label for="salary">Salary</label>
+ <input type="number" id="salary" th:field="*{salary}" />
+ <br/>
+ <label for="otherinc">Other Income</label>
+ <input type="number" id="otherinc" th:field="*{otherinc}" />
+ <br/>
+ <h2>Spend</h2>
+ <label for="rent">Rent</label>
+ <input type="number" id="rent" th:field="*{rent}" />
+ <br/>
+ <label for="bills">Bills</label>
+ <input type="number" id="bills" th:field="*{bills}" />
+ <br/>
+ <label for="food">Food</label>
+ <input type="number" id="food" th:field="*{food}" />
+ <br/>
+ <label for="essentials">Essentials</label>
+ <input type="number" id="essentials" th:field="*{essentials}" />
+ <br/>
+ <label for="entertainment">Entertainment</label>
+ <input type="number" id="entertainment" th:field="*{entertainment}" />
+ <br/>
+ <label for="otherspe">Other Spend</label>
+ <input type="number" id="otherspe" th:field="*{otherspe}" />
+ <br/>
  <input type="submit" value="Save"></input>
  </form>
 </div>
+<!-- linkki kotisivulle -->
+<a href="/index" class="btn btn-primary">Kotisivu</a>
 </body>
 </html>
