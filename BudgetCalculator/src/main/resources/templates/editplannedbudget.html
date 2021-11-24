@@ -2,21 +2,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Budget Planner</title>
+<title>Budget Calculator</title>
 </head>
 <body>
 <h1>Modify Planned Budget</h1>
 <div>
+<!-- Budjetin muokkaus -->
 <form th:object="${plannedbudget}" th:action="@{../saveplan}" action="#" method="post">
 <input type="hidden" th:field="*{id}" readonly="readonly"/>
-<label for="month">Month</label>
-<input type="text" id="month" th:field="*{month}" />
-<label for="income">Income</label>
-<input type="number" id="income" th:field="*{income}" />
-<label for="spend">Spend</label>
-<input type="number" id="spend" th:field="*{spend}" />
-
-<input type="submit" class="btn btn-success" value="Save"></input>
+ <label for="month">Month</label>
+ <input type="month" id="month" th:field="*{month}" />
+ <br/>
+ <h2>Income</h2>
+ <label for="salary">Salary</label>
+ <input type="number" id="salary" th:field="*{salary}" />
+ <br/>
+ <label for="otherinc">Other Income</label>
+ <input type="number" id="otherinc" th:field="*{otherinc}" />
+ <br/>
+ <h2>Spend</h2>
+ <label for="rent">Rent</label>
+ <input type="number" id="rent" th:field="*{rent}" />
+ <br/>
+ <label for="bills">Bills</label>
+ <input type="number" id="bills" th:field="*{bills}" />
+ <br/>
+ <label for="food">Food</label>
+ <input type="number" id="food" th:field="*{food}" />
+ <br/>
+ <label for="essentials">Essentials</label>
+ <input type="number" id="essentials" th:field="*{essentials}" />
+ <br/>
+ <label for="entertainment">Entertainment</label>
+ <input type="number" id="entertainment" th:field="*{entertainment}" />
+ <br/>
+ <label for="otherspe">Other Spend</label>
+ <input type="number" id="otherspe" th:field="*{otherspe}" />
+ <br/>
+ <input type="submit" value="Save Plan"></input>
 </form>
 </div>
 </body>
