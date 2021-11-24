@@ -5,25 +5,21 @@ xmlns:th="http://www.thymeleaf.org">
 <title>Budget Calculator</title>
 </head>
 <body>
-<h1>Previous Budgets</h1>
 
-<table class="table table-striped">
-<tr>
-<th>Income</th>
-<th>Spend</th>
-</tr>
+<h1>Budget Calculator</h1>
+<p>
+Budget Calculator that calculates your monthly income and spend. You can also plan your budget for future months.
+</p>
 
-<tr th:each = "budget : ${budgets}">
-<td th:text="${budget.income}"></td>
-<td th:text="${budget.spend}"></td>
-</tr>
-</table>
+<!-- linkki budjettilistauksiin -->
+<a href="/budgets" class="btn btn-primary">Budget Lists</a>
+<br/>
+<!-- linkki menneen budjetin lisäykseen -->
+<a href="/add" class="btn btn-primary">Add Monthly Budget</a>
+<br/>
+<!-- linkki budjettisuunnitelman lisäykseen -->
+<a href="/addplan" class="btn btn-primary">Plan Monthly Budget</a>
 
-<h1>Calculate your budget</h1>
-<form action="#" th:action="@{/budgets}" th:object="${budget}" method="get">
-<p>Income: <input type="text" th:field="*{income}"></p>
-<p>Spend: <input type="text" th:field="*{spend}"></p>
-<p><input type="submit" value="Submit"></p>
 </form>
 </body>
 </html>
